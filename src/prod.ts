@@ -17,3 +17,8 @@ export function prodFactorial(a: number, b: number): number {
 export function factorial(n: number): number {
   return n <= 1 ? 1 : n * factorial(n - 1);
 }
+
+export const prodMap =
+  (mapFn: (value: number) => number) =>
+  (a: number, b: number): number =>
+    a > b ? 1 : mapFn(a) * prodMap(mapFn)(a + 1, b);

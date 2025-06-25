@@ -6,7 +6,13 @@ import {
   factorial,
   sumMap,
 } from "./sum";
-import { prodInts, prodSquares, prodCubes, prodFactorial } from "./prod";
+import {
+  prodInts,
+  prodSquares,
+  prodCubes,
+  prodFactorial,
+  prodMap,
+} from "./prod";
 
 console.log("\n---Plain sum functions---\n");
 
@@ -32,3 +38,14 @@ console.log("prodInts => ", prodInts(1, 5));
 console.log("prodSquares => ", prodSquares(1, 5));
 console.log("prodCubes => ", prodCubes(1, 5));
 console.log("prodFactorial => ", prodFactorial(1, 5));
+
+console.log("\n---Currying sum functions---\n");
+
+const prodInt2 = prodMap((x) => x);
+console.log("prodInt2 => ", prodInt2(1, 5));
+const prodSquares2 = prodMap((x) => x * x);
+console.log("prodSquares2 => ", prodSquares2(1, 5));
+const prodCubes2 = prodMap((x) => x * x * x);
+console.log("prodCubes2 => ", prodCubes2(1, 5));
+const prodFactorial2 = prodMap((x) => factorial(x));
+console.log("prodFactorial2 => ", prodFactorial2(1, 5));
