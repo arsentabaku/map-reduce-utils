@@ -17,3 +17,8 @@ export function sumFactorial(a: number, b: number): number {
 export function factorial(n: number): number {
   return n <= 1 ? 1 : n * factorial(n - 1);
 }
+
+export const sumMap =
+  (mapFn: (value: number) => number) =>
+  (a: number, b: number): number =>
+    a > b ? 0 : mapFn(a) + sumMap(mapFn)(a + 1, b);
