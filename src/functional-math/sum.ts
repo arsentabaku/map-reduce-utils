@@ -1,3 +1,6 @@
+import { mapReduce2 } from "./map-reduce";
+import { factorial } from "../utilities";
+
 export function sumInts(a: number, b: number): number {
   return a > b ? 0 : a + sumInts(a + 1, b);
 }
@@ -14,11 +17,9 @@ export function sumFactorial(a: number, b: number): number {
   return a > b ? 0 : factorial(a) + sumFactorial(a + 1, b);
 }
 
-export function factorial(n: number): number {
-  return n <= 1 ? 1 : n * factorial(n - 1);
-}
-
 export const sumMap =
   (mapFn: (value: number) => number) =>
   (a: number, b: number): number =>
     a > b ? 0 : mapFn(a) + sumMap(mapFn)(a + 1, b);
+
+export const sumMap2 = mapReduce2((a, b) => a + b, 0);
